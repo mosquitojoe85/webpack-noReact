@@ -1,0 +1,44 @@
+$max_w: 900px;
+$min_w: 768px;
+
+$header_h: 64px;
+$logo_w: 227px;
+
+$space_w: 18px;
+
+$font_size: 18px;
+$font_size2: 18px;
+$font_size_big: 20px;
+
+
+//電腦
+@mixin pc_width() {
+  @media screen and (min-width: $min_w) {
+    @content;
+  }
+}
+//手機
+@mixin mobile_width() {
+  @media screen and (max-width: $min_w) {
+    @content;
+  }
+}
+
+
+@mixin responsive-width($pc, $mobile, $print){
+  @include pc_width { width: $pc; }
+  @include mobile_width { width: $mobile; }
+}
+
+@mixin responsive-display($pc, $mobile, $print) {
+  @include pc_width { display: $pc; }
+  @include mobile_width { display: $mobile; }
+}
+
+@mixin responsive-font_size($pc, $mobile, $print) {
+  @include pc_width { font-size: $pc; }
+  @include mobile_width { font-size: $mobile; }
+}
+
+
+

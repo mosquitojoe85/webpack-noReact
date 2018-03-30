@@ -1,0 +1,181 @@
+@import "_colors.scss";
+@import "_size.scss";
+
+body {
+  font-family: "PingFangTC-Regular", Helvetica, Arial, sans-serif;
+  padding: 0px;
+  margin: 0px;
+  color: $text_c;
+}
+
+div, p{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.header{
+  background-color: $header_back_c;
+  height: $header_h;
+  z-index: 200;
+  width: 100%;
+  top: 0px;
+  & > div{
+    max-width: $max_w;
+    min-height: $header_h;
+    margin: 0 auto;
+    color: $white_c;
+    position: relative;
+    p{
+      font-weight: normal;
+      margin: 0px;
+      // @include responsive-font_size($font_size, $font_size2);
+      @include pc_width {
+        position: absolute;
+        float: right;
+        right: $space_w + 60px + $space_w/2;
+        bottom: $space_w;
+      }
+      @include mobile_width {
+        display: block;
+        position: relative;
+        left: 0px;
+        top: 0px;
+        padding: $space_w/2 $space_w;
+        text-align: right;
+      }
+    }
+    div{
+      position: absolute;
+      left: $space_w;
+      bottom: $space_w;
+      width: $logo_w;
+      img{
+        width: 100%;
+      }
+      @include mobile_width{
+        display: block;
+        position: relative;
+        top: 0px;
+        left: 0px;
+        padding-top: $space_w/2;
+        margin-left: $space_w;
+      }
+    }
+  }
+}
+
+.body{
+  max-width: $max_w;
+  margin: 0 auto;
+  margin-top: $header_h + $space_w;
+  .basicInfo{
+    margin-bottom: $space_w;
+    .info_img_wrapper{
+      @include mobile_width{
+        background-color: $white_c;
+        padding: $space_w/2 0px;
+      }
+      .info_img{
+        // @include responsive-width($infoImg_w, $infoImg_w_big);
+        float: left;
+        margin-left: $space_w;
+        @include mobile_width{
+          float: none;
+          margin: 0 auto;
+        }
+        img{
+          width: 100%;
+        }
+      }
+    }
+    .info_detail_wrapper{
+      margin: $space_w $space_w $space_w/2;
+      border-bottom: 1px solid $border_c;
+      @include mobile_width{
+        margin-top: $space_w/2;
+      }
+      .info_detail{
+        h3{
+          font-size: $font_size;
+          padding: 0px 0px $space_w/2 $space_w/2;
+          border-bottom: 1px solid $border_c;
+          margin-bottom: 0px;
+        }
+        .info_detail_block{
+          margin-left: $space_w/2;
+          @include mobile_width{
+            margin: 0px;
+          }
+          .row{
+            margin-right: 0px;
+            margin-left: 0px;
+          }
+          .info_detail_col{
+            padding: 0px $space_w/2;
+            margin: $space_w/2 0px;
+            @include mobile_width{
+              margin: 0px;
+              .row{
+                margin-left: 0px;
+              }
+            }
+            p{
+              margin: $space_w/4 0px $space_w/4 0px;
+              font-size: $font_size2;
+              // @include responsive-font_size($font_size, $font_size);
+              @include mobile_width{
+                margin: 0px;
+                line-height: 180%;
+              }
+            }
+          }
+          .info_detail_col ~ .info_detail_col {
+            border-left: 1px dashed $border_c;
+            @include mobile_width{
+              border: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  .vitalSign{
+    margin: 0px $space_w;
+    page-break-before: always;
+    margin-top: 18px;
+    .vitSign_block{
+      border: 1px solid $border_c;
+      margin-bottom: $space_w/2;
+      background-color: $white_c;
+      position: relative;
+      z-index: 10;
+
+      .row{
+        margin-right: 0px;
+        margin-left: 0px;
+      }
+    }
+  }
+  .vitalSign_first{
+    page-break-before: auto;
+    margin-top: 0px;
+  }
+  .scale{
+    margin: 0px $space_w;
+    margin-top: $space_w*2;
+    position: relative;
+    z-index: 10;
+    h2{
+      padding-left: $space_w/2;
+      color: $green_c;
+      font-size: $font_size;
+      border-bottom: 1px solid $border_c;
+      padding-bottom: $space_w/4;
+      margin-bottom: $space_w;
+    }
+  }
+}
+
+
