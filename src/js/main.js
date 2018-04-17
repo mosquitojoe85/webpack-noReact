@@ -9,15 +9,12 @@ if (process.env.NODE_ENV !== 'production') {
   require('../index.html');
 }
 
-const chartOption = {
-  chart: { type: 'line' },
-  title: { text: '' },
-  scrollbar: { enabled: false },
-  navigator: { enabled: false },
-  tooltip:{ enabled: true },
-  credits: { enabled: false },
-  series: {},
-  exporting: { enabled: false }
-};
+if (document.querySelectorAll('test').length) {
+    require.ensure([], () => {
+      const Button = require('../components/Button.js').default;
+      const button = new Button('google.com');
 
+      button.render('test');
+    }, 'button');
+}
 
