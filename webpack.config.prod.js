@@ -5,7 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 // 建立一個 extract text plugin 的實例
 var extractPlugin = new ExtractTextPlugin({
-  filename: 'bundle.css' // scss轉css後另存的目標檔名
+  filename: 'bundle.[hash].css' // scss轉css後另存的目標檔名
   // allChunks: true
   // disable: process.env.NODE_ENV !== 'production'
 });
@@ -17,7 +17,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: 'bundle.[hash].js',
     publicPath: './'
   },
   module: {
@@ -47,6 +47,10 @@ module.exports = {
             presets: ['env', 'stage-3']
           }
         }
+      },
+      {
+        test: /\.(html)$/,
+        loader: "html-loader", // loaders: ['raw-loader']，這個方式也是可以被接受的。
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,

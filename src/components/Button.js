@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import template from './Button.html';
-// import './Header.scss';
 
 export default class Button {
   constructor(link) {
